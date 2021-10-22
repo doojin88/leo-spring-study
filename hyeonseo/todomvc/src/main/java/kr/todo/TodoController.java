@@ -3,10 +3,7 @@ package kr.todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
@@ -28,5 +25,14 @@ public class TodoController {
         todoRepository.save(new TodoItem(itemForm.getTitle(), false));
         return "redirect:/";
     }
+
+    @GetMapping("/{id}/toggle")
+    public String toggleTodo(@PathVariable("id") Long id) {
+        TodoItem todoItem = todoRepository.getById(id);
+        todoItem.setCompleted(!todoItem.isCompleted());
+        todoRepository.save(todoItem);
+        return "redirect:/";
+    }
+
 
 }
