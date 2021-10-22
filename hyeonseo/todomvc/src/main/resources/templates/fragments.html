@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <body>
-
+<li th:each="item : ${totalItemList}" th:if="${item.isCompleted()}==false">
+    <div class="view">
+        <input class="toggle" type="checkbox">
+        <label th:text="${item.getTitle()}">Buy a unicorn</label>
+        <button class="destroy"></button>
+    </div>
+    <input class="edit" value="Rule the web">
+</li>
 </body>
 </html>
