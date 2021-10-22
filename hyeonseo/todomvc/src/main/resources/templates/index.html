@@ -29,7 +29,9 @@
 								<input class="toggle" type="checkbox" onchange="this.form.submit()">
 								<label th:text="${item.getTitle()}">Buy a unicorn</label>
 							</form>
-							<button class="destroy"></button>
+							<form th:action="@{/{id}(id=${item.getId()})}" th:method="delete">
+								<button class="destroy"></button>
+							</form>
 						</div>
 						<input class="edit" value="Rule the web">
 					</li>
@@ -39,7 +41,9 @@
 								<input class="toggle" type="checkbox" onchange="this.form.submit()" checked>
 								<label th:text="${item.getTitle()}">Buy a unicorn</label>
 							</form>
-							<button class="destroy"></button>
+							<form th:action="@{/{id}(id=${item.getId()})}" th:method="delete">
+								<button class="destroy"></button>
+							</form>
 						</div>
 						<input class="edit" value="Create a TodoMVC template">
 					</li>
