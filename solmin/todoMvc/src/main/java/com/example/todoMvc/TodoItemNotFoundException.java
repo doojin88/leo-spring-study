@@ -1,4 +1,4 @@
-package com.example.todoMvc;
+package com.wimdeblauwe.examples.todomvcthymeleaf.todoitem;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
